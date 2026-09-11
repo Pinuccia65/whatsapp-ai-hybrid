@@ -13,8 +13,8 @@ class Settings(BaseSettings):
     cors_origins: List[str] = ["http://localhost:5173", "http://localhost:3000"]
     
     # Supabase (sostituisce MongoDB + Redis)
-    supabase_url: str = ""
-    supabase_key: str = ""
+    supabase_url: str
+    supabase_key: str
     session_ttl_hours: int = 24
     
     # OpenAI
