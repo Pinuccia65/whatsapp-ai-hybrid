@@ -20,9 +20,16 @@ class WhatsAppService:
                 "Content-Type": "application/json",
             }, json=body, timeout=10.0)
             
-            if response.status_code != 200:
-                raise Exception(f"WhatsApp error: {response.status_code}")
-            print(f"Message sent to {to}")
+    if response.status_code != 200:
+       print("=== WHATSAPP API ERROR ===")
+       print(f"URL: {url}")
+       print(f"STATUS: {response.status_code}")
+       print(f"RESPONSE: {response.text}")
+       raise Exception(
+        f"WhatsApp error: {response.status_code} - {response.text}"
+    )
+
+    print(f"Message sent to {to}")
     
     def _build_body(self, to: str, message: Dict[str, Any]) -> Dict[str, Any]:
         base = {"messaging_product": "whatsapp", "to": to}
