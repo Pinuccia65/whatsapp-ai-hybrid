@@ -14,7 +14,18 @@ _supabase: Client = None
 def init_supabase() -> Client:
     """Inizializza il client Supabase."""
     global _supabase
-    _supabase = create_client(settings.supabase_url, settings.supabase_key)
+
+    print("=== SUPABASE DEBUG ===")
+    print("URL:", settings.supabase_url)
+    print("KEY PRESENT:", bool(settings.supabase_key))
+    print("KEY LENGTH:", len(settings.supabase_key))
+    print("======================")
+
+    _supabase = create_client(
+        settings.supabase_url,
+        settings.supabase_key
+    )
+
     print("Connected to Supabase")
     return _supabase
 
