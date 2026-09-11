@@ -5,8 +5,8 @@ pydantic==2.7.1
 pydantic-settings==2.2.1
 
 # Database (Supabase = PostgreSQL)
-supabase==2.5.0
-postgrest==0.16.0
+# Database (Supabase = PostgreSQL)
+supabase>=2.27.0
 
 # AI
 openai==1.30.1
